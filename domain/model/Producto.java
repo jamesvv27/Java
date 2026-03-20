@@ -84,4 +84,16 @@ public class Producto {
                     esperado);
         }
     }
+
+    @Override 
+    public String toString()
+    {
+        return "Producto{ \nSerie: "+ numeroSerie +
+                "\nsku: " + sku +
+                "\nmodelo: " + modelo +
+                "\nliena: " + lineaProduccion +
+                "\nestado: " + estadoProduccion + "\n}";
+    }
+    
+    
 }
