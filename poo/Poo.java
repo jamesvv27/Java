@@ -9,6 +9,7 @@ public class Poo
     public static void main(String[] args)
     {
         Telefono t = new Telefono(
+                50.0,
                 "SN-90001", 
                 "SKU-A10",
                 "Galaxy Demo",
@@ -29,5 +30,7 @@ public class Poo
         System.out.println(t);
         
         t.conectarWifi();
+        
+        t.desconectarWifi();
     }
 }

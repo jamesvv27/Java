@@ -9,9 +9,11 @@ public class Telefono extends Producto implements Conectable {
     private final int ramGB;
     private final int almacenamientoGB;
     
-    public Telefono (String numeroSerie, String sku, String modelo,
+    public Telefono (double precioBase, String numeroSerie, String sku,
+            String modelo,
             String imei, int ramGB, int almacenamientoGB){
-        super(numeroSerie, sku, modelo, LineaProduccion.TELEFONOS);
+        super(precioBase, numeroSerie, sku, modelo,
+                LineaProduccion.TELEFONOS);
         this.imei = imei;
         this.ramGB = ramGB;
         this.almacenamientoGB = almacenamientoGB;
@@ -39,10 +41,24 @@ public class Telefono extends Producto implements Conectable {
     }
 
     @Override
+    public int calcularGarantia()
+    {
+        if(getPrecioBase() > 500){
+            return 24;
+        }
+        return 12;
+    }
+
+    @Override
+    public void desconectarWifi()
+    {
+        System.out.println("Desconectando de wi-fi");
+    }
+    
+    @Override
     public void conectarWifi()
     {
         System.out.println("Conectando a wi-fi");
     }
-    
     
 }

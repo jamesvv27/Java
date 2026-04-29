@@ -8,18 +8,20 @@ public abstract class Producto {
     private final String numeroSerie;
     private final String sku;
     private final String modelo;
+    private final double precioBase;
     private final LineaProduccion lineaProduccion;
     
     private EstadoProduccion estadoProduccion;
     private String motivoRechazo;
 
-    public Producto(String numeroSerie, String sku, String modelo, LineaProduccion lineaProduccion)
+    public Producto(double precioBase, String numeroSerie, String sku,
+            String modelo, LineaProduccion lineaProduccion)
     {
         this.numeroSerie = numeroSerie;
         this.sku = sku;
         this.modelo = modelo;
         this.lineaProduccion = lineaProduccion;
-        
+        this.precioBase = precioBase;
         this.estadoProduccion = EstadoProduccion.EN_LINEA;
         this.motivoRechazo = null; 
     }
@@ -37,6 +39,11 @@ public abstract class Producto {
     public String getModelo()
     {
         return modelo;
+    }
+
+    public double getPrecioBase()
+    {
+        return precioBase;
     }
 
     public LineaProduccion getLineaProduccion()
@@ -86,6 +93,8 @@ public abstract class Producto {
     }
 
     public abstract void realizarPruebaCalidad();
+    
+    public abstract int calcularGarantia();
     
     @Override 
     public String toString()
