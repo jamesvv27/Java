@@ -1,8 +1,9 @@
 package domain.model;
 
 import domain.enums.LineaProduccion;
+import domain.util.interfaces.Conectable;
 
-public class Telefono extends Producto {
+public class Telefono extends Producto implements Conectable {
     
     private final String imei;
     private final int ramGB;
@@ -29,6 +30,18 @@ public class Telefono extends Producto {
     public int getAlmacenamientoGB()
     {
         return almacenamientoGB;
+    }
+
+    @Override
+    public void realizarPruebaCalidad()
+    {
+        System.out.println("Realizando prueba de calidad");
+    }
+
+    @Override
+    public void conectarWifi()
+    {
+        System.out.println("Conectando a wi-fi");
     }
     
     

@@ -3,7 +3,7 @@ package domain.model;
 import domain.enums.EstadoProduccion;
 import domain.enums.LineaProduccion;
 
-public class Producto {
+public abstract class Producto {
     
     private final String numeroSerie;
     private final String sku;
@@ -85,6 +85,8 @@ public class Producto {
         }
     }
 
+    public abstract void realizarPruebaCalidad();
+    
     @Override 
     public String toString()
     {

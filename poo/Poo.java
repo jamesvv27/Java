@@ -1,6 +1,8 @@
 package poo;
 
+import domain.model.Producto;
 import domain.model.Telefono;
+import java.util.ArrayList;
 
 public class Poo
 {
@@ -15,6 +17,9 @@ public class Poo
                 256
         );
         
+        ArrayList<Producto> telesfonos = new ArrayList<Producto>();
+        telesfonos.add(t);
+        
         System.out.println(t);
         
         t.iniciarPrueba();
@@ -22,5 +27,7 @@ public class Poo
         t.empaquetar();
         
         System.out.println(t);
+        
+        t.conectarWifi();
     }
 }
