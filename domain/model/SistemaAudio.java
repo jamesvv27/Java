@@ -8,9 +8,11 @@ public class SistemaAudio extends Producto
     private final int numeroMaxBocinas;
     private final int numeroMaxSBuffers;
 
-    public SistemaAudio(int numeroMaxBocinas, int numeroMaxSBuffers, String numeroSerie, String sku, String modelo, LineaProduccion lineaProduccion)
+    public SistemaAudio(double precioBase, int numeroMaxBocinas,
+            int numeroMaxSBuffers, String numeroSerie, String sku,
+            String modelo, LineaProduccion lineaProduccion)
     {
-        super(numeroSerie, sku, modelo, lineaProduccion);
+        super(precioBase, numeroSerie, sku, modelo, lineaProduccion);
         this.numeroMaxBocinas = numeroMaxBocinas;
         this.numeroMaxSBuffers = numeroMaxSBuffers;
     }
@@ -24,13 +26,20 @@ public class SistemaAudio extends Producto
     {
         return numeroMaxSBuffers;
     }
-    
-    
 
     @Override
     public void realizarPruebaCalidad()
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("Realizando prueba de calidad del SistemaAudio");
+    }
+
+    @Override
+    public int calcularGarantia()
+    {
+        if(getPrecioBase() > 1000){
+            return 32;
+        }
+        return 12;
     }
     
 }

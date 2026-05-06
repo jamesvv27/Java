@@ -8,9 +8,11 @@ public class Television extends Producto
     private final String pulgadas;
     private final String fabricante;
 
-    public Television(String pulgadas, String fabricante, String numeroSerie, String sku, String modelo, LineaProduccion lineaProduccion)
+    public Television(double precioBase, String pulgadas, String fabricante,
+            String numeroSerie, String sku, String modelo,
+            LineaProduccion lineaProduccion)
     {
-        super(numeroSerie, sku, modelo, lineaProduccion);
+        super(precioBase, numeroSerie, sku, modelo, lineaProduccion);
         this.pulgadas = pulgadas;
         this.fabricante = fabricante;
     }
@@ -25,12 +27,19 @@ public class Television extends Producto
         return fabricante;
     }
     
-    
-
     @Override
     public void realizarPruebaCalidad()
     {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        System.out.println("Realizando prueba de calidad de TV");
+    }
+
+    @Override
+    public int calcularGarantia()
+    {
+        if(getPrecioBase() > 1000){
+            return 32;
+        }
+        return 12;
     }
     
 }
